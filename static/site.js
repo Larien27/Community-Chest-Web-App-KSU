@@ -5,7 +5,7 @@ function fetchFile() {
       addCards(xhr.responseText);
     }
   }
-  xhr.open("GET", './box-locations.json');
+  xhr.open("GET", './data/box-locations.json');
   xhr.send();
 }
 
