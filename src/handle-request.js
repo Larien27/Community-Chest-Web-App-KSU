@@ -11,6 +11,12 @@ function handleRequest(req, res) {
   if (req.method !== 'GET') return res.writeHead(501).end();
 
   var pathname = new URL(req.url, 'http://localhost').pathname;
+  if (pathname.endsWith('/')) {
+    req.url = path.join(req.url, "index.html");
+    serveFile(req, res);
+    return;
+  }
+
   fs.stat(path.join("static", pathname), (err, stat) => {
     if(err) return res.writeHead(404).end();
     if (stat.isFile()) return serveFile(req, res);
