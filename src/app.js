@@ -13,6 +13,7 @@ app.get('/box-locations/:id/requests', newRequest);
 app.get('/box-locations/:id', showRequest);
 //app.get('/box-locations/:id', showBoxLocation);
 //app.post('/box-locations', loadBody, createRequest);
+
 app.use(express.static('static'));
 
 module.exports = app;

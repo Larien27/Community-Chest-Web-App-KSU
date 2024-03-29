@@ -13,7 +13,7 @@ function createRequest(req, res) {
 
   var info = db.prepare("INSERT INTO REQUESTS (boxId, request, fulfilled) VALUES (?, ?, ?)").run(boxId, request, fulfilled);
   if(info.changes != 1) return serveError(req, res, 500, `Unable to insert ${boxId}, ${request}, ${fulfilled} into requests`);
-    res.writeHead(302, {"Location": `box-locations/${boxId}/requests`}).end(); 
+  res.writeHead(302, {"Location": `box-locations/${boxId}/requests`}).end(); 
 }
 
 module.exports = createRequest;

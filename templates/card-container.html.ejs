@@ -1,8 +1,11 @@
-<% boxes.forEach((box) => { %>
-  <div>
-    <img alt="<%= box.name %> Location" src="https://maps.googleapis.com/maps/api/staticmap?center=<%= box.lat %>,<%= box.lng %>&zoom=14&size=300x300&markers=color:red%7C<%= box.lat %>,<%= box.lng %>&style=feature:road%7Ccolor:0xffffff%7Cvisibility:simplified&key=AIzaSyAqQhirQyUFzYzGTdVQVoJCNxqOyKjhdhw">
-    <div class="content">
-      <h2><a href="/box-locations/<%= box.id %>"><%= box.name %></a></h2>
-    </div>
-  </div>
-<% }); %>
+<h1>MHK Community Chest</h1>
+  <div class="card-container">
+    <% boxes.forEach((box) => { %>
+      <div id="card">
+        <img alt="<%= box.name %> Location" src="https://maps.googleapis.com/maps/api/staticmap?center=<%= box.lat %>,<%= box.lng %>&zoom=14&size=300x300&markers=color:red%7C<%= box.lat %>,<%= box.lng %>&style=feature:road%7Ccolor:0xffffff%7Cvisibility:simplified&key=AIzaSyAqQhirQyUFzYzGTdVQVoJCNxqOyKjhdhw">
+        <div class="content">
+          <h2><a href="/box-locations/<%= box.id %>"><%= box.name %></a></h2>
+        </div>
+      </div>
+    <% }); %>
+</div>
