@@ -1,4 +1,4 @@
-function fetchFile() {
+/*function fetchFile() {
   const xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function(event) {
     if(xhr.readyState === 4 && xhr.status === 200) {
@@ -39,4 +39,4 @@ function addCards(jsonFile) {
   });
 }
 
-fetchFile();
+fetchFile();*/

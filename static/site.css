@@ -43,6 +43,15 @@ h1 {
   padding: 0 5px 5px 5px;
 }
 
+.card-container > div > .content > h2 > a {
+  text-decoration: none;
+  color: black;
+}
+
+.card-container > div > .content > h2 > a:hover {
+  text-decoration: underline;
+}
+
 @media (max-width: 1400px) {
   .card-container {
     grid-template-columns: repeat(3, 1fr);
