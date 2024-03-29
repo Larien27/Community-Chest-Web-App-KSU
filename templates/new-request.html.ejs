@@ -1,5 +1,6 @@
 <h2>New Request</h2>
-<form method="POST" action="/requests">  
+<form method="POST" action="/requests">
+  <input type="hidden" name="boxId" value=<%= boxId %>  
   <label>Request</label>
   <textarea name="request" rows="10" required></textarea>
   
