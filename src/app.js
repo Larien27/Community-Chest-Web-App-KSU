@@ -8,7 +8,7 @@ const showRequest = require('./endpoints/show-request');
 
 var app = express();
 
-app.get('/', serveHomepage);
+app.get(['/', '/box-locations'], serveHomepage);
 app.get('/box-locations/:id/requests', newRequest);
 app.get('/box-locations/:id', showRequest);
 //app.get('/box-locations/:id', showBoxLocation);
