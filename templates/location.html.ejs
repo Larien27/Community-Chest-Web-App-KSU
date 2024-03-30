@@ -5,6 +5,22 @@
     <p>Latitude: <%= box.lat %>&deg; N</p>
     <p>Longitude: <%= box.lng %>&deg; W</p>
   </div>
-  <%- requests %>
+
+  <h2>Requests</h2>
+    <div id="request-container">
+    <table>
+      <tr>
+        <th>Request</th>
+        <th>Fullfiled</th>
+      </tr>
+      <% requests.forEach((request) => { %>
+        <tr>
+          <td><%= request.request %></td>
+          <td><%= request.fulfilled == 1 ? "Yes" : "No" %></td>
+        </tr>
+      <% }); %>
+    </table>
+    </div>
+
   <%- requestForm %>
 </div>
