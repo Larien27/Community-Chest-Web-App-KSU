@@ -8,8 +8,8 @@ const showLocation = require('./endpoints/show-location');
 var app = express();
 
 app.get(['/', '/box-locations'], boxLocations);
-app.get('/box-locations/:id/requests', newRequest);
 app.get('/box-locations/:id', showLocation);
+app.post('/box-locations/:id/requests', loadBody, createRequest);
 //app.post('/box-locations', loadBody, createRequest);
 
 app.use(express.static('static'));

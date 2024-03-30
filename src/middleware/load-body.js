@@ -113,7 +113,6 @@ function parseContentPart(contentBuffer) {
  * @return {object} the field data as a JavaScript object
  */
 function parseMultipart(buffer, boundary) {
-  // TODO: Parse the multipart buffer and return its input data as an object  
   var body = {};
   var partBuffers = splitContentParts(buffer, boundary);
   partBuffers.forEach(partBuffer => {

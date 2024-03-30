@@ -3,17 +3,16 @@ const sanitizeHTML = require('sanitize-html');
 const serveError = require('../serve-error');
 
 function createRequest(req, res) {
-  //var boxId = req.body.boxId;
-  var boxId = 0;
+  var boxId = req.body.boxId;
   var request = req.body.request;
   var fulfilled = 0;
   request = sanitizeHTML(request);
 
   if(!request) return serveError(req, res, 422, "Empty request encountered");
 
-  var info = db.prepare("INSERT INTO REQUESTS (boxId, request, fulfilled) VALUES (?, ?, ?)").run(boxId, request, fulfilled);
+  var info = db.prepare("INSERT INTO REQUESTS (box_id, request, fulfilled) VALUES (?, ?, ?)").run(boxId, request, fulfilled);
   if(info.changes != 1) return serveError(req, res, 500, `Unable to insert ${boxId}, ${request}, ${fulfilled} into requests`);
-  res.writeHead(302, {"Location": `box-locations/${boxId}/requests`}).end(); 
+  res.writeHead(302, {"Location": `/box-locations/${boxId}`}).end(); 
 }
 
 module.exports = createRequest;
