@@ -1,14 +1,13 @@
-<div id="location">
+<div class="card">
   <img alt="<%= box.name %> Location" src="https://maps.googleapis.com/maps/api/staticmap?center=<%= box.lat %>,<%= box.lng %>&zoom=14&size=300x300&markers=color:red%7C<%= box.lat %>,<%= box.lng %>&style=feature:road%7Ccolor:0xffffff%7Cvisibility:simplified&key=AIzaSyAqQhirQyUFzYzGTdVQVoJCNxqOyKjhdhw">
   <div class="content">
     <h2><a href="/box-locations/<%= box.id %>"><%= box.name %></a></h2>
-    <p>Latitude: <%= box.lat %>&deg; N</p>
-    <p>Longitude: <%= box.lng %>&deg; W</p>
   </div>
+</div>
 
-  <h2>Requests</h2>
-    <div id="request-container">
-    <table>
+<div id="requests">
+  <h2>Requests:</h2>
+    <table id="request-table">
       <tr>
         <th>Request</th>
         <th>Fullfiled</th>
@@ -20,7 +19,6 @@
         </tr>
       <% }); %>
     </table>
-    </div>
 
   <%- requestForm %>
 </div>
