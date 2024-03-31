@@ -1,7 +1,7 @@
 const querystring = require('querystring');
 const serveError = require('../serve-error');
 
-function loadBody(req, res, next) {
+function parseBody(req, res, next) {
   var chunks = [];
   
   // listen for data events
@@ -50,7 +50,7 @@ function loadBody(req, res, next) {
   });
 }
 
-module.exports = loadBody;
+module.exports = parseBody;
 
 
 /** @function splitContentParts
