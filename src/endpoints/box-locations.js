@@ -1,11 +1,6 @@
 const db = require('../database');
 const templates = require('../templates');
 
-/** @function homepage
- * Serves the home page 
- * @param {http.IncomingMessage} req - the request object 
- * @param {http.ServerResponse} res - the response object
- */
 function boxLocations(req, res) {
   var boxes = db.prepare("SELECT * FROM boxes").all();
   var boxHtml = templates['card-container.html']({boxes: boxes});
