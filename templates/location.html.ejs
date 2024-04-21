@@ -19,6 +19,7 @@
         </tr>
       <% }); %>
     </table>
-
-  <%- requestForm %>
+  <% if(locals.user) { %>
+    <%- requestForm %>
+  <% } %>
 </div>

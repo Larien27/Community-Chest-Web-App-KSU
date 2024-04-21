@@ -29,7 +29,12 @@ function getSession(sid) {
   }
 }
 
+function removeSession(sid) {
+  delete sessions[sid];
+}
+
 module.exports = {
   create: createSession,
-  get: getSession
+  get: getSession,
+  remove: removeSession
 }

@@ -11,6 +11,7 @@ const newSession = require('./endpoints/new-session');
 const createSession = require('./endpoints/create-session');
 const parseCookie = require('./middleware/parse-cookie');
 const loadSession = require('./middleware/load-session');
+const destroySession = require('./endpoints/destroy-session');
 
 var app = express();
 
@@ -19,6 +20,7 @@ app.use(loadSession);
 app.get(['/', '/box-locations'], boxLocations);
 app.get("/signup", newUser);
 app.get('/signin', newSession);
+app.get("/signout", destroySession);
 app.get('/box-locations/:id', showLocation);
 app.post('/signup', parseBody, createUser);
 app.post("/signin", parseBody, createSession);

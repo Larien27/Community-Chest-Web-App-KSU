@@ -7,7 +7,7 @@ function showLocation(req, res) {
   var requests = db.prepare("SELECT * FROM requests WHERE box_id = ?").all(id);
   var form = templates["new-request.html"]({boxId: id});
   
-  var location = templates["location.html"]({box: box, requests: requests, requestForm: form});
+  var location = templates["location.html"]({box: box, requests: requests, requestForm: form, user: req.session.user});
   var html = templates["layout.html"]({title: box.name, boxes: location, user: req.session.user});
   res.setHeader("Content-Type", "text/html");
   res.setHeader("Content-Length", html.length);
