@@ -5,6 +5,16 @@
     <link type="text/css" rel="stylesheet" href="/site.css">
   </head>
   <body>
+    <header>
+      <% if(locals.user) { %>
+        Welcome <%= user.name %>!
+      <% } else { %>
+        <a href="/signin">Sign In</a> 
+        or
+        <a href="/signup">Sign Up</a>
+      <% } %>
+    </header>
+    
     <%- boxes %>
   </body>
 </html>

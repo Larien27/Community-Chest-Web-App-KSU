@@ -2,6 +2,7 @@ const bcrypt = require('bcrypt');
 const templates = require('../templates');
 const db = require('../database');
 const serveError = require('../serve-error');
+const sessions = require('../sessions');
 
 function createUser(req, res) {
   var email = req.body.email;
@@ -18,13 +19,20 @@ function createUser(req, res) {
   bcrypt.hash(password, passes, (err, hash) => {
     if(err) return serveError(req, res, 500, err);
     var info = db.prepare("INSERT INTO User (email, name, password) VALUES (?, ?, ?);").run(email, username, hash);
-    if(info.changes === 1) success(req, res);
+    if(info.changes === 1) {
+      var user = db.prepare("SELECT * FROM User WHERE name = ?").get(username);
+      success(req, res, user);
+    }
     else failure(req, res, "An error occurred.  Please try again.");
   });
 }
 
-function success(req, res, userID) {
-  res.end("Logged In");
+function success(req, res, user) {
+  var sid = sessions.create(user);
+  res.setHeader("Set-Cookie", `SID=${sid}; Secure; HTTPOnly`);
+  res.statusCode = 302;
+  res.setHeader("Location", "/");
+  res.end();
 }
 
 function failure(req, res, errorMessage) {

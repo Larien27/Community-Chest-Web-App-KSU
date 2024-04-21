@@ -8,7 +8,7 @@ function showLocation(req, res) {
   var form = templates["new-request.html"]({boxId: id});
   
   var location = templates["location.html"]({box: box, requests: requests, requestForm: form});
-  var html = templates["layout.html"]({title: box.name, boxes: location});
+  var html = templates["layout.html"]({title: box.name, boxes: location, user: req.session.user});
   res.setHeader("Content-Type", "text/html");
   res.setHeader("Content-Length", html.length);
   res.end(html);

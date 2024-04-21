@@ -9,8 +9,12 @@ const newUser = require('./endpoints/new-user');
 const createUser = require('./endpoints/create-user');
 const newSession = require('./endpoints/new-session');
 const createSession = require('./endpoints/create-session');
+const parseCookie = require('./middleware/parse-cookie');
+const loadSession = require('./middleware/load-session');
 
 var app = express();
+
+app.use(loadSession);
 
 app.get(['/', '/box-locations'], boxLocations);
 app.get("/signup", newUser);
