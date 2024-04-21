@@ -21,5 +21,10 @@
     </table>
   <% if(locals.user) { %>
     <%- requestForm %>
+  <% } else { %>
+    <h2>Want to add a request?</h2>
+    <a href="/signin">Sign In</a> 
+        or
+    <a href="/signup">Sign Up</a>
   <% } %>
 </div>
