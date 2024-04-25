@@ -17,14 +17,14 @@ var app = express();
 
 app.use(loadSession);
 
-app.get(['/', '/box-locations'], boxLocations);
+app.get('/', boxLocations);
 app.get("/signup", newUser);
 app.get('/signin', newSession);
 app.get("/signout", destroySession);
-app.get('/box-locations/:id', showLocation);
+app.get('/box-details/:id', showLocation);
 app.post('/signup', parseBody, createUser);
 app.post("/signin", parseBody, createSession);
-app.post('/box-locations/:id/requests', basicAuth, parseBody, createRequest);
+app.post('/box-details/:id/requests', basicAuth, parseBody, createRequest);
 
 app.use(express.static('static'));
 
