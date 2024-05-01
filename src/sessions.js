@@ -1,4 +1,5 @@
 const {v1: uuidv1} = require('uuid');
+const db = require('./database');
 
 var sessions = {}
 
@@ -14,7 +15,8 @@ function createSession(user) {
     timestamp: Date.now(),
     user: {
       id: user.id,
-      username: user.username
+      username: user.username,
+      admin: user.admin
     },
     data: {}
   }

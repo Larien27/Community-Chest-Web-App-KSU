@@ -12,19 +12,31 @@ const createSession = require('./endpoints/create-session');
 const parseCookie = require('./middleware/parse-cookie');
 const loadSession = require('./middleware/load-session');
 const destroySession = require('./endpoints/destroy-session');
+const newBoxLocation = require('./endpoints/new-box-location');
+const createBoxLocation = require('./endpoints/create-box-location');
+const authorsOnly = require('./middleware/authors-only');
 
 var app = express();
 
 app.use(loadSession);
 
 app.get('/', boxLocations);
-app.get("/signup", newUser);
+app.get('/signup', newUser);
 app.get('/signin', newSession);
-app.get("/signout", destroySession);
+app.get('/signout', destroySession);
 app.get('/box-details/:id', showLocation);
+app.get('/box-locations/create', authorsOnly, newBoxLocation);
+
+/*
+  app.get('box-locations/:id/requests/:id/fulfill');
+  app.get('/users');
+  app.post('/users/:id', parseBody);
+ */
+
 app.post('/signup', parseBody, createUser);
 app.post("/signin", parseBody, createSession);
 app.post('/box-details/:id/requests', basicAuth, parseBody, createRequest);
+app.post('/box-locations/create', authorsOnly, parseBody, createBoxLocation);
 
 app.use(express.static('static'));
 

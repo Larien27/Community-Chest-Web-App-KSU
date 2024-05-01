@@ -7,6 +7,9 @@
   <body>
     <header>
       <% if(locals.user) { %>
+        <% if(locals.user.admin === 1) { %>
+          <a href="/box-locations/create">Create Box Location</a>
+        <% } %>
         <a href="/signout">Sign Out</a>
       <% } else { %>
         <a href="/signin">Sign In</a> 

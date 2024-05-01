@@ -12,11 +12,21 @@
       <tr>
         <th>Request</th>
         <th>Fullfiled</th>
+        <th></th>
       </tr>
       <% requests.forEach((request) => { %>
         <tr>
           <td><%= request.request %></td>
           <td><%= request.fulfilled == 1 ? "Yes" : "No" %></td>
+          <td>
+            <% if (request.fulfilled == 0) { %>
+              <% if(locals.user) { %>
+                <button>Fulfill</button>
+              <% } else { %>
+                <a href="/signin">Sign In</a> or <a href="/signup">Sign Up</a> to fulfill requests
+              <% } %>
+            <% } %>
+          </td>
         </tr>
       <% }); %>
     </table>
