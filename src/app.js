@@ -16,6 +16,7 @@ const newBoxLocation = require('./endpoints/new-box-location');
 const createBoxLocation = require('./endpoints/create-box-location');
 const authorsOnly = require('./middleware/authors-only');
 const users = require('./endpoints/users');
+const fulfillRequest = require('./endpoints/fulfill-request');
 
 var app = express();
 
@@ -28,9 +29,9 @@ app.get('/signout', destroySession);
 app.get('/box-details/:id', showLocation);
 app.get('/box-locations/create', authorsOnly, newBoxLocation);
 app.get('/users', authorsOnly, users);
-
+// basicAuth not working?
+app.get('/box-locations/:box_id/requests/:request_id/fulfill', basicAuth, fulfillRequest);
 /*
-  app.get('box-locations/:id/requests/:id/fulfill');
   app.post('/users/:id', parseBody);
  */
 

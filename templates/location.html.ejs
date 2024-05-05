@@ -21,7 +21,7 @@
           <td>
             <% if (request.fulfilled == 0) { %>
               <% if(locals.user) { %>
-                <button>Fulfill</button>
+                <a href="/box-locations/<%= box.id %>/requests/<%= request.id %>/fulfill">Fulfill</a>
               <% } else { %>
                 <a href="/signin">Sign In</a> or <a href="/signup">Sign Up</a> to fulfill requests
               <% } %>
