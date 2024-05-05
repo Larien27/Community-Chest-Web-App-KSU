@@ -15,6 +15,7 @@ const destroySession = require('./endpoints/destroy-session');
 const newBoxLocation = require('./endpoints/new-box-location');
 const createBoxLocation = require('./endpoints/create-box-location');
 const authorsOnly = require('./middleware/authors-only');
+const users = require('./endpoints/users');
 
 var app = express();
 
@@ -26,10 +27,10 @@ app.get('/signin', newSession);
 app.get('/signout', destroySession);
 app.get('/box-details/:id', showLocation);
 app.get('/box-locations/create', authorsOnly, newBoxLocation);
+app.get('/users', authorsOnly, users);
 
 /*
   app.get('box-locations/:id/requests/:id/fulfill');
-  app.get('/users');
   app.post('/users/:id', parseBody);
  */
 
