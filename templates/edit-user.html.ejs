@@ -1,0 +1,22 @@
+<div>
+  <h1>Edit User</h1>
+  <form method="POST">
+
+    <div class="error-message">
+      <%= errorMessage %>
+    </div>
+    <input type="hidden" name="id" value=<%= user.id %>>
+
+    <label for="name">Name:</label>
+    <input type="text" name="name" value=<%= user.name %> />
+
+    <label for="email">Email:</label>
+    <input type="text" name="email" value="<%= user.email %>" />
+
+    <input type="checkbox" name="admin" value="Admin" <% if(user.admin === 1) { %>checked<% } %> />
+    <label for="admin">Admin</label><br>
+
+    <input type="submit" value="Edit User"/>
+
+  </form>
+</div>
