@@ -125,7 +125,7 @@ h1 {
   background-color: rgb(200, 200, 200);
 }
 
-.button, #go-back-button {
+.button, #go-back-button, input[type=submit] {
   margin: 5px;
   padding: 8px 20px;
   background-color: rgb(111, 0, 158);
@@ -136,9 +136,10 @@ h1 {
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2)
 }
 
-.button:hover, #go-back-button:hover {
+.button:hover, #go-back-button:hover, input[type=submit]:hover {
   background-color: white;
   color: rgb(111, 0, 158);
+  cursor: pointer;
 }
 
 #go-back-button {
@@ -150,4 +151,17 @@ h1 {
 #top-part-location {
   display: flex;
   flex-direction: column;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+input[type=text], input[type=password] {
+  border: 2px solid rgb(111, 0, 158);
+  border-radius: 10px;
+  padding: 5px 10px;
 }
