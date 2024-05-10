@@ -13,8 +13,10 @@
     <label for="email">Email:</label>
     <input type="text" name="email" value="<%= user.email %>" />
 
+    <div>
     <input type="checkbox" name="admin" value="Admin" <% if(user.admin === 1) { %>checked<% } %> />
-    <label for="admin">Admin</label><br>
+    <label for="admin">Admin</label>
+    </div>
 
     <input type="submit" value="Edit User"/>
 

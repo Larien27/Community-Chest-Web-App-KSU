@@ -11,12 +11,18 @@ header {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 5px;
-  padding: 5px 15px;
 }
 
 header a, header a:hover {
   color: white;
+  height: 100%;
+  padding: 0 15px;
+  text-decoration: none;
+  align-content: center;
+}
+
+header a:hover {
+  background-color: rgb(83, 1, 119);
 }
 
 /* Box Locations (Main Page) */
@@ -168,7 +174,7 @@ form {
   row-gap: 10px;
 }
 
-input[type=text], input[type=password] {
+input[type=text], input[type=password], textarea {
   border: 2px solid rgb(111, 0, 158);
   border-radius: 10px;
   padding: 5px 10px;
