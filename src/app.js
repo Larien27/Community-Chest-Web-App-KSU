@@ -31,7 +31,6 @@ app.get('/signout', destroySession);
 app.get('/box-details/:id', showLocation);
 app.get('/box-locations/create', authorsOnly, newBoxLocation);
 app.get('/users', authorsOnly, users);
-// basicAuth not working?
 app.get('/box-locations/:box_id/requests/:request_id/fulfill', basicAuth, fulfillRequest);
 app.get('/users/:user_id', authorsOnly, editUser);
 

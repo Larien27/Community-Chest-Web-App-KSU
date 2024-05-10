@@ -1,17 +1,23 @@
-<h1>Users</h1>
+<div id="top-part-location">
+  <a id="go-back-button" href="/">&lt;</a>
+  <h1>Users</h1>
+</div>
 
-<table>
-  <tr>
-    <th>ID</th>
-    <th>Name</th>
-    <th>Email</th>
-  </tr>
-  <% users.forEach((user) => { %>
+<div id="users">
+  <table id="user-table">
     <tr>
-      <td><%= user.id %></td>
-      <td><%= user.name %></td>
-      <td><%= user.email %></td>
-      <td><a href="/users/<%= user.id %>">Edit</a></td>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th></th>
     </tr>
-  <% }); %>
-</table>
+    <% users.forEach((user) => { %>
+      <tr>
+        <td><%= user.id %></td>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td><a class="button" href="/users/<%= user.id %>">Edit</a></td>
+      </tr>
+    <% }); %>
+  </table>
+</div>
