@@ -1,3 +1,6 @@
+require('dotenv').config();
+const apiKey = process.env.GOOGLE_MAPS_API_KEY;
+
 const express = require('express');
 const boxLocations = require('./endpoints/box-locations');
 const newRequest = require('./endpoints/new-request');
@@ -21,6 +24,11 @@ const editUser = require('./endpoints/edit-user');
 const updateUser = require('./endpoints/update-user');
 
 var app = express();
+
+app.use((req, res, next) => {
+    res.locals.GOOGLE_MAPS_API_KEY = apiKey;
+    next();
+});
 
 app.use(loadSession);
 
